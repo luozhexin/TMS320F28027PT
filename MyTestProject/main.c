@@ -6,6 +6,7 @@
 #define TARGET_GLOBAL 1
 
 #include "Application\app.h"
+#include "User_Component/bsp_key/bsp_key.h"
 
 
 void main(void)
@@ -29,13 +30,16 @@ void main(void)
     //4. the global interrupt start (if use interrupt)
 
     //5. main LOOP
-    for( ; ; )
+    while(1)
     {
-        // call API from app.h
+        if(Key_scan(KEY1)==KEY_ON)
+       {
+       // call API from app.h
        // LED_Control();
+
+       }
+        else
         LED_Control1();
-
-
         //myGpio->GPACLEAR=1;
 
       // myGpio->GPACLEAR = 2;
