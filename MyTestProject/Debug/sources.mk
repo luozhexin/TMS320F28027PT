@@ -121,5 +121,6 @@ User_Component/Delay \
 User_Component/Example \
 User_Component/LED_Gpio \
 User_Component/User_System \
+User_Component/User_Timer \
 User_Component/bsp_key \
 

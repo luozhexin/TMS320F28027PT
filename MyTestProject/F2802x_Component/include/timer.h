@@ -113,7 +113,8 @@ typedef struct _TIMER_Obj_
 //! \brief Defines the timer (TIMER) handle
 //!
 typedef struct TIMER_Obj *TIMER_Handle;
-
+//TIMER_Handle myTimer0;
+//myTimer0=TIMER_init((void*)TIMER0_BASE_ADDR,sizeof(TIMER_Obj));
 
 // **************************************************************************
 // the globals

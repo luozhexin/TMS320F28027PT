@@ -36,10 +36,11 @@ void main(void)
        {
        // call API from app.h
        // LED_Control();
-
+            LED_Control1();
        }
-        else
-        LED_Control1();
+
+
+
         //myGpio->GPACLEAR=1;
 
       // myGpio->GPACLEAR = 2;

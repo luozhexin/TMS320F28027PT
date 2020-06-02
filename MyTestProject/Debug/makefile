@@ -36,6 +36,7 @@ ORDERED_OBJS += \
 "./User_Component/Example/example.obj" \
 "./User_Component/LED_Gpio/LED_Gpio.obj" \
 "./User_Component/User_System/User_System.obj" \
+"./User_Component/User_Timer/User_Timer.obj" \
 "./User_Component/bsp_key/bsp_key.obj" \
 "../CMD/F2802x_Headers_nonBIOS.cmd" \
 "../CMD/F2802x_generic_ram.cmd" \
@@ -63,6 +64,7 @@ RMDIR := RMDIR /S/Q
 -include User_Component/Example/subdir_vars.mk
 -include User_Component/LED_Gpio/subdir_vars.mk
 -include User_Component/User_System/subdir_vars.mk
+-include User_Component/User_Timer/subdir_vars.mk
 -include User_Component/bsp_key/subdir_vars.mk
 -include subdir_rules.mk
 -include Application/subdir_rules.mk
@@ -74,6 +76,7 @@ RMDIR := RMDIR /S/Q
 -include User_Component/Example/subdir_rules.mk
 -include User_Component/LED_Gpio/subdir_rules.mk
 -include User_Component/User_System/subdir_rules.mk
+-include User_Component/User_Timer/subdir_rules.mk
 -include User_Component/bsp_key/subdir_rules.mk
 -include objects.mk
 
@@ -205,8 +208,8 @@ MyTestProject.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "main.obj" "Application\app.obj" "Application\isr.obj" "F2802x_Component\F2802x_Device.obj" "F2802x_Component\source\F2802x_CodeStartBranch.obj" "F2802x_Component\source\adc.obj" "F2802x_Component\source\cap.obj" "F2802x_Component\source\clk.obj" "F2802x_Component\source\comp.obj" "F2802x_Component\source\cpu.obj" "F2802x_Component\source\flash.obj" "F2802x_Component\source\gpio.obj" "F2802x_Component\source\osc.obj" "F2802x_Component\source\pie.obj" "F2802x_Component\source\pll.obj" "F2802x_Component\source\pwm.obj" "F2802x_Component\source\pwr.obj" "F2802x_Component\source\sci.obj" "F2802x_Component\source\sci_io.obj" "F2802x_Component\source\spi.obj" "F2802x_Component\source\timer.obj" "F2802x_Component\source\wdog.obj" "User_Component\Delay\Delay.obj" "User_Component\Example\example.obj" "User_Component\LED_Gpio\LED_Gpio.obj" "User_Component\User_System\User_System.obj" "User_Component\bsp_key\bsp_key.obj" 
-	-$(RM) "main.d" "Application\app.d" "Application\isr.d" "F2802x_Component\F2802x_Device.d" "F2802x_Component\source\adc.d" "F2802x_Component\source\cap.d" "F2802x_Component\source\clk.d" "F2802x_Component\source\comp.d" "F2802x_Component\source\cpu.d" "F2802x_Component\source\flash.d" "F2802x_Component\source\gpio.d" "F2802x_Component\source\osc.d" "F2802x_Component\source\pie.d" "F2802x_Component\source\pll.d" "F2802x_Component\source\pwm.d" "F2802x_Component\source\pwr.d" "F2802x_Component\source\sci.d" "F2802x_Component\source\sci_io.d" "F2802x_Component\source\spi.d" "F2802x_Component\source\timer.d" "F2802x_Component\source\wdog.d" "User_Component\Delay\Delay.d" "User_Component\Example\example.d" "User_Component\LED_Gpio\LED_Gpio.d" "User_Component\User_System\User_System.d" "User_Component\bsp_key\bsp_key.d" 
+	-$(RM) "main.obj" "Application\app.obj" "Application\isr.obj" "F2802x_Component\F2802x_Device.obj" "F2802x_Component\source\F2802x_CodeStartBranch.obj" "F2802x_Component\source\adc.obj" "F2802x_Component\source\cap.obj" "F2802x_Component\source\clk.obj" "F2802x_Component\source\comp.obj" "F2802x_Component\source\cpu.obj" "F2802x_Component\source\flash.obj" "F2802x_Component\source\gpio.obj" "F2802x_Component\source\osc.obj" "F2802x_Component\source\pie.obj" "F2802x_Component\source\pll.obj" "F2802x_Component\source\pwm.obj" "F2802x_Component\source\pwr.obj" "F2802x_Component\source\sci.obj" "F2802x_Component\source\sci_io.obj" "F2802x_Component\source\spi.obj" "F2802x_Component\source\timer.obj" "F2802x_Component\source\wdog.obj" "User_Component\Delay\Delay.obj" "User_Component\Example\example.obj" "User_Component\LED_Gpio\LED_Gpio.obj" "User_Component\User_System\User_System.obj" "User_Component\User_Timer\User_Timer.obj" "User_Component\bsp_key\bsp_key.obj" 
+	-$(RM) "main.d" "Application\app.d" "Application\isr.d" "F2802x_Component\F2802x_Device.d" "F2802x_Component\source\adc.d" "F2802x_Component\source\cap.d" "F2802x_Component\source\clk.d" "F2802x_Component\source\comp.d" "F2802x_Component\source\cpu.d" "F2802x_Component\source\flash.d" "F2802x_Component\source\gpio.d" "F2802x_Component\source\osc.d" "F2802x_Component\source\pie.d" "F2802x_Component\source\pll.d" "F2802x_Component\source\pwm.d" "F2802x_Component\source\pwr.d" "F2802x_Component\source\sci.d" "F2802x_Component\source\sci_io.d" "F2802x_Component\source\spi.d" "F2802x_Component\source\timer.d" "F2802x_Component\source\wdog.d" "User_Component\Delay\Delay.d" "User_Component\Example\example.d" "User_Component\LED_Gpio\LED_Gpio.d" "User_Component\User_System\User_System.d" "User_Component\User_Timer\User_Timer.d" "User_Component\bsp_key\bsp_key.d" 
 	-$(RM) "F2802x_Component\source\F2802x_CodeStartBranch.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
